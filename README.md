@@ -2,7 +2,7 @@
 
 [![PyPI version](https://badge.fury.io/py/nearup.svg)](https://pypi.org/project/nearup/)
 
-Public scripts to launch near devnet, betanet and testnet node
+Public scripts to launch near guildnet, devnet, betanet and testnet node
 
 # Usage
 
@@ -26,7 +26,7 @@ sudo apt install python3 git curl
 ## Install
 
 ```
-curl --proto '=https' --tlsv1.2 -sSfL https://up.near.dev | python3
+curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/masknetgoal634/nearup/add-guildnet/nearup | python3
 ```
 
 Nearup automatically adds itself to PATH: restart the terminal, or issue the command `source ~/.profile`.

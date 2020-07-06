@@ -111,7 +111,7 @@ def check_and_setup(nodocker,
                 print(f'Update devnet config for new boot nodes')
                 os.remove(os.path.join(home_dir, 'config.json'))
                 download_config('devnet', home_dir)
-        elif chain_id in ['betanet', 'testnet']:
+        elif chain_id in ['guildnet', 'betanet', 'testnet']:
             check_and_update_genesis(chain_id, home_dir)
         else:
             print(f'Start {chain_id}')
@@ -133,16 +133,16 @@ def check_and_setup(nodocker,
         account_id = account_id[0].split('=')[-1]
 
     if nodocker:
-        if chain_id in ['devnet', 'betanet', 'testnet']:
+        if chain_id in ['guildnet', 'devnet', 'betanet', 'testnet']:
             nodocker_init_official(chain_id, binary_path, home_dir, account_id)
         else:
             nodocker_init(home_dir, binary_path, init_flags)
     else:
-        if chain_id in ['devnet', 'betanet', 'testnet']:
+        if chain_id in ['guildnet', 'devnet', 'betanet', 'testnet']:
             docker_init_official(chain_id, image, home_dir, account_id)
         else:
             docker_init(image, home_dir, init_flags)
-    if chain_id not in ['devnet', 'betanet', 'testnet'] and no_gas_price:
+    if chain_id not in ['guildnet', 'devnet', 'betanet', 'testnet'] and no_gas_price:
         filename = os.path.join(home_dir, 'genesis.json')
         genesis_config = json.load(open(filename))
         genesis_config['gas_price'] = 0
@@ -167,6 +167,8 @@ def download_genesis(net, home_dir):
 def net_to_branch(net):
     if net == 'testnet':
         return 'stable'
+    elif net == 'guildnet':
+        return 'post-phase-1'
     elif net == 'betanet':
         return 'beta'
     elif net == 'devnet':
@@ -505,7 +507,9 @@ def show_logs(follow, number_lines):
         exit(1)
 
     pid_info = open(NODE_PID).read()
-    if 'devnet' in pid_info:
+    if 'guildnet' in pid_info:
+        net = 'guildnet'
+    elif 'devnet' in pid_info:
         net = 'devnet'
     elif 'betanet' in pid_info:
         net = 'betanet'
@@ -539,7 +543,9 @@ def check_binary_version(binary_path, chain_id):
 
 
 def net_to_docker_image(chain_id):
-    if chain_id == 'betanet':
+    if chain_id == 'guildnet':
+        image = 'guildnet/nearcore:post-phase-1'
+    elif chain_id == 'betanet':
         image = 'nearprotocol/nearcore:beta'
     elif chain_id == 'devnet':
         image = 'nearprotocol/nearcore:master'
