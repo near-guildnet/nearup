@@ -23,7 +23,7 @@ def download(url, filepath=None, *, headers=None):
 
 def download_near_s3(path, filepath=None):
     return download(
-        f'https://raw.githubusercontent.com/masknetgoal634/nearcore-deploy/master/{path}',
+        f'https://s3-us-east-2.amazonaws.com/build.openshards.io/{path}',
         filepath)
 
 
