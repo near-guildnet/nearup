@@ -26,7 +26,7 @@ sudo apt install python3 git curl
 ## Install
 
 ```
-curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/masknetgoal634/nearup/add-guildnet/nearup | python3
+curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/near-guildnet/nearup/master/nearup | python3
 ```
 
 Nearup automatically adds itself to PATH: restart the terminal, or issue the command `source ~/.profile`.
