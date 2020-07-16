@@ -15,6 +15,7 @@ class NearupArgParser(object):
 
 Commands are:
     mainnet    (Comming soon) Run a mainnet node
+    guildnet   Run a guildnet node
     testnet    Run a testnet node
     betanet    Run a betanet node
     devnet     Run a devnet node
@@ -35,6 +36,11 @@ Run nearup <command> --help to see help for specific command
 
     def localnet(self):
         self.args = None
+
+    def guildnet(self):
+        parser = create_net_argparser(netname='guildnet',
+                                      description='Run a guildnet node')
+        self.args = parser.parse_args(sys.argv[2:])
 
     def testnet(self):
         parser = create_net_argparser(netname='testnet',
@@ -78,7 +84,7 @@ if __name__ == '__main__':
     sys.argv[0] = 'nearup'
     nearup_arg_parser = NearupArgParser()
     command, args = nearup_arg_parser.command, nearup_arg_parser.args
-    if command in ['devnet', 'betanet', 'testnet']:
+    if command in ['guildnet', 'devnet', 'betanet', 'testnet']:
         if args.local:
             print("Flag --local deprecated, please use --nodocker")
         nodocker = args.nodocker or args.local
