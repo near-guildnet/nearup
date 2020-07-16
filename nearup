@@ -15,7 +15,7 @@ nearup_dir = os.path.expanduser('~/.nearup')
 main_script = os.path.expanduser('~/.nearup/main.py')
 if not os.path.exists(main_script):
     p = subprocess.Popen([
-        'git', 'clone', '--branch', 'add-guildnet', 'https://github.com/near-guildnet/nearup',
+        'git', 'clone', 'https://github.com/near-guildnet/nearup',
         os.path.expanduser('~/.nearup')
     ],
                          stdout=subprocess.PIPE,
