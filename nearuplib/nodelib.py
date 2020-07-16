@@ -168,11 +168,9 @@ def net_to_branch(net):
     if net == 'testnet':
         return 'stable'
     elif net == 'guildnet':
-        return 'post-phase-1'
+        return 'master'
     elif net == 'betanet':
         return 'beta'
-    elif net == 'devnet':
-        return 'master'
     else:
         raise Exception(f'Unknown net {net}')
 
