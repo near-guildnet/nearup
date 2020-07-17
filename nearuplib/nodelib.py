@@ -176,7 +176,7 @@ def net_to_branch(net):
 
 
 def latest_deployed_version(net):
-    return download_near_s3(f'nearcore-deploy/{net}/latest_deploy')
+    return download_near_s3(f'nearcore-deploy/{net}/latest_deploy').strip()
 
 
 def docker_changed(net):
