@@ -55,30 +55,30 @@ On each run, nearup self-updates to the latest version.
 Once all the prerequisites are met, just run:
 
 ```
-nearup betanet
+nearup guildnet
 ```
 
-Where `betanet` is the weekly release; use `devnet` for the nightly releases, or `testnet` for the stable releases.
+Where `guildnet` is the weekly release; use `devnet` for the nightly releases, or `testnet` for the stable releases.
 
 ### Using Officially Compiled Binary (recommended for running on servers)
 
 Currently, officially compiled binaries are available for Linux and Mac OS X
 
 ```
-nearup betanet --nodocker
+nearup guildnet --nodocker
 ```
 
-Replace `betanet` with `devnet` or `testnet` if you want to use a different network.
+Replace `guildnet` with `devnet` or `testnet` if you want to use a different network.
 
 ### Using Locally Compiled Binary (recommended for security critical validators or development needs)
 
 Clone and compile nearcore with `make release` or `make debug` first.
 
 ```
-nearup betanet --nodocker --binary-path path/to/nearcore/target/{debug, release}
+nearup guildnet --nodocker --binary-path path/to/nearcore/target/{debug, release}
 ```
 
-Replace `betanet` with `devnet` or `testnet` if you want to use a different network.
+Replace `guildnet` with `devnet` or `testnet` if you want to use a different network.
 
 ## Spawn Local network
 
@@ -101,7 +101,7 @@ nearup stop
 ## Additional Options
 
 ```
-nearup betanet --help
+nearup guildnet --help
 ```
 
 # Contributions
@@ -143,7 +143,7 @@ nearup runs also on Apple macOS. Requirements:
 
 4. Launch the nearup with the command
 	```
-	nearup betanet
+	nearup guildnet
 	```
 	The output will look like this:
 	```
@@ -159,7 +159,7 @@ nearup runs also on Apple macOS. Requirements:
 	Node is running! 
 	To check logs call: docker logs --follow nearcore
 	```
-	Nearup will ask your `account ID`, for now you can leave it empty. If you already have a wallet on https://wallet.betanet.near.org, feel free to input your `account ID` for future use as a validator.
+	Nearup will ask your `account ID`, for now you can leave it empty. If you already have a wallet on https://wallet.openshards.io, feel free to input your `account ID` for future use as a validator.
 
 5. Check if your node is running correctly by issuing the command
 	```
@@ -167,7 +167,7 @@ nearup runs also on Apple macOS. Requirements:
 	```
 	The output will look like this:
 	```
-	Telemetry: https://explorer.betanet.near.org/api/nodes
+	Telemetry: https://explorer.guildnet.near.org/api/nodes
 	Bootnodes: 
 	Mar 25 01:38:59.607  INFO near: Did not find "/srv/near/data" path, will be creating new store database    
 	Mar 25 01:39:00.161  INFO stats: Server listening at ed25519:AWDhVpfVDvV85tem2ZUa6CmZQwmPawFuzR1wnoiLirRa@0.0.0.0:24567
@@ -186,7 +186,7 @@ nearup runs also on Apple macOS. Requirements:
 ### Updating the node
 Nearup provides an automated process to verify that your node is using the current network, by analyzing `genesis.json`. If your node is not up to date, it will not be able to dowload new blocks, and will disconnect automatically:
 ```
-Apr 10 18:10:15.873 ERROR network: Attempting to connect to a node (ed25519:GkDv7nSMS3xcqA45cpMvFmfV1o4fRF6zYo1JRR6mNqg5@0.0.0.0:24567@node2) with a different genesis block. Our genesis: GenesisId { chain_id: "betanet", hash: `BAtdJLUtNabWVJnnvYUuot7TfRf9VcqKh4b8FKAXbXSD` }, their genesis: GenesisId { chain_id: "betanet", hash: `3MKug5MgUnBYBeymCL8P9KXYSJoAhTfcKJzhPKPo8iXQ` }
+Apr 10 18:10:15.873 ERROR network: Attempting to connect to a node (ed25519:GkDv7nSMS3xcqA45cpMvFmfV1o4fRF6zYo1JRR6mNqg5@0.0.0.0:24567@node2) with a different genesis block. Our genesis: GenesisId { chain_id: "guildnet", hash: `BAtdJLUtNabWVJnnvYUuot7TfRf9VcqKh4b8FKAXbXSD` }, their genesis: GenesisId { chain_id: "guildnet", hash: `3MKug5MgUnBYBeymCL8P9KXYSJoAhTfcKJzhPKPo8iXQ` }
 ```
 
 To automatically update your node, stop nearup:
@@ -195,11 +195,11 @@ nearup stop
 ```
 Wait a few seconds, and restart nearup:
 ```
-nearup betanet
+nearup guildnet
 ```
 The output will show a new genesis checksum:
 ```
-Warning: current deployed version on betanet is 650b69863207ac6be5b55d2b2f8761dc89821b49, but local binary is 56622f45. It might not work
+Warning: current deployed version on guildnet is 650b69863207ac6be5b55d2b2f8761dc89821b49, but local binary is 56622f45. It might not work
 Remote genesis protocol version md5 997a44a7b94fdb680d87548d7dd9a572, ours is 309f5819133d4399f4a0bab054fa3c38
 Update genesis nearkat with 'ed25519:A5DL4iByp1EbYYpRVrpoKwBBA5YKkPdK6L1hLsTmcQrv'
 Starting NEAR client...
