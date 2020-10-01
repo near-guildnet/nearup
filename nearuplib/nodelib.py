@@ -168,7 +168,7 @@ def net_to_branch(net):
     if net == 'testnet':
         return 'stable'
     elif net == 'guildnet':
-        return '1.13.0-rc.3'
+        return '1.15.0-rc.1'
     elif net == 'betanet':
         return 'beta'
     else:
