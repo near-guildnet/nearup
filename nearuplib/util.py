@@ -108,7 +108,7 @@ def latest_deployed_release_commit_has_changed(net, commit):
 
 
 def latest_deployed_release_branch(net):
-    return read_from_s3(f'nearcore-deploy/{net}/latest_release').strip()
+    return read_from_s3(f'nearcore-deploy/{net}/latest_deploy').strip()
 
 
 def latest_deployed_release_time(net):
