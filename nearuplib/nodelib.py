@@ -229,22 +229,9 @@ def download_binary(net, uname):
         download_near_s3(
             f'nearcore/{uname}/{net_to_branch(net)}/{latest_deploy_version}/near',
             os.path.expanduser(f'~/.nearup/near/{net}/near'))
-        download_near_s3(
-            f'nearcore/{uname}/{net_to_branch(net)}/{latest_deploy_version}/keypair-generator',
-            os.path.expanduser(f'~/.nearup/near/{net}/keypair-generator'))
-        download_near_s3(
-            f'nearcore/{uname}/{net_to_branch(net)}/{latest_deploy_version}/genesis-csv-to-json',
-            os.path.expanduser(f'~/.nearup/near/{net}/genesis-csv-to-json'))
         subprocess.check_output(
             ['chmod', '+x',
              os.path.expanduser(f'~/.nearup/near/{net}/near')])
-        subprocess.check_output([
-            'chmod', '+x',
-            os.path.expanduser(f'~/.nearup/near/{net}/keypair-generator')
-        ])
-        subprocess.check_output([
-            'chmod', '+x',
-            os.path.expanduser(f'~/.nearup/near/{net}/genesis-csv-to-json')
         ])
         with open(os.path.expanduser(f'~/.nearup/near/{net}/version'),
                   'w') as f:
