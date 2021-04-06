@@ -232,7 +232,6 @@ def download_binary(net, uname):
         subprocess.check_output(
             ['chmod', '+x',
              os.path.expanduser(f'~/.nearup/near/{net}/near')])
-        ])
         with open(os.path.expanduser(f'~/.nearup/near/{net}/version'),
                   'w') as f:
             f.write(latest_deploy_version)
